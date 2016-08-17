@@ -6,11 +6,23 @@ There's a lot of styleguides out there: here's another one based off of my own d
 
 
 ## Contents
+1. Tooling
 1. File and Directories
 2. Controllers
 3. Services
 4. Directives
-5. Tooling
+
+## Tooling
+### DO use a build tool. 
+* I recommend brunch.
+### Configure your build tool to:
+* Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
+* Manage templates by:
+  * placing all `.html` templates into the root folder
+  * OR inlining templates via `template:` 
+  * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.
+### DO use ui-router.
+### DO use $http.
 
 ## Files and Directories
 
@@ -139,7 +151,3 @@ eg. `gallery-show-controller.js`
 ### Use 2-way binding.
 ### Use isolate scope except in extreme circumstances.
 ### Directive names should be camelCased.
-
-## Tooling
-### Configure your build tool to concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
-### Configure your build tool to either place all templates into the root folder, inline templates, or auto-append the folder prefix during build to `templateUrl:` statements in the code.
