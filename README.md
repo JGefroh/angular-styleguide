@@ -20,6 +20,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 ## Tooling
 ### DO use a build tool. 
 * I recommend brunch.
+
 ### Configure your build tool to:
 * Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
 * Manage templates by:
