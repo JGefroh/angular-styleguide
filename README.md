@@ -20,10 +20,11 @@ There's a lot of styleguides out there: here's another one based off of my own d
 * Manage templates by:
   * placing all `.html` templates into the root folder
   * OR inlining templates via `template:` 
-  * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.
-### DO use ui-router.
-### DO use $http.
-
+  * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.  
+  
+### DO use ui-router.  
+### DO use $http.  
+ 
 ## Files and Directories
 
 
