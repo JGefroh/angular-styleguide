@@ -6,11 +6,16 @@ There's a lot of styleguides out there: here's another one based off of my own d
 
 
 ## Contents
-1. Tooling
-1. File and Directories
-2. Controllers
-3. Services
-4. Directives
+1. Principles
+2. Tooling
+3. File and Directories
+4. Controllers
+5. Services
+6. Directives
+
+## Principles
+* Consistency
+* Black-box approach
 
 ## Tooling
 ### DO use a build tool. 
