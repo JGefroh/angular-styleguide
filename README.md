@@ -33,6 +33,8 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
       * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.  
 * Use [ui-router](https://github.com/angular-ui/ui-router).
 * Use angular's default `$http` unless you have a compelling reason to use libraries like `restangular` or `ngResource`..
+* Think twice before using auto-annotation tools.
+  * I found when people didn't have to manually manage annotations, the number of dependency-injected items went up tremendously. If your team is able to maintain discipline, go ahead and use it to save time and effort!
  
 ## Files and Directories
 * Organize files by modules, not by type
@@ -52,6 +54,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
 * Place the angular boilerplate up on top (eg. `angular.module...`).
   * Putting it on the bottom makes it harder to find.
 * Use named functions when passing in functions to angular.
+* Don't assign angular to anything.
 
 ### Good! Do this:
 `pun-generator.js`
@@ -69,11 +72,10 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
 ### Bad! Don't do this:
 `pun-generator.js`
 ```
-angular
-  .module('module-name')
-  .controller('punGenerator', function() {
+var app = angular.module('module-name');
+app.controller('punGenerator', function() {
    //code here
-  });
+});
 ```
 
 ## Controllers
