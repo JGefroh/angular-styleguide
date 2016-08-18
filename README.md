@@ -111,6 +111,9 @@ app.controller('PunGenerationController', function() {
 });
 ```
 
+## Modules
+* Module names should be lowercased and `.` separated to denote hierarchies.
+
 ## Controllers
 * The names of page controllers should be [PascalCased](http://c2.com/cgi/wiki?PascalCase) and end with "Controller", eg. `GalleryShowController`.
 * Don't use `ngController` in the DOM except as a root-level controller on `<html>` - all other controllers should be linked with their templates in route definitions or directives.
@@ -236,6 +239,7 @@ eg. `users-browse-controller.js`
 * Debounce via `ngModelOptions` if you don't need changes to be detected immediately (such as when writing an autocomplete).
 * Move toggles outside of loops, including ngRepeats.
   * eg. if you have an `ngIf` inside an `ngRepeat` that doesn't change on a per-element basis, move the `ngIf` outside of the `ngRepeat` so it doesn't create a watch per element but just once for the whole collection.
+* States should be lowercased and kebab-cased.
 
 Break the rules of this styleguide when necessary.  
 
