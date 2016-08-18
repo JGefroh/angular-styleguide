@@ -92,7 +92,8 @@ app.controller('punGenerator', function() {
 ## Services
 * Services should contain business logic and calls to 3rd-party systems.
 * Use `.service()` exclusively except in extreme circumstances.
-* Use `.factory()` to create extendable Services - wrap results in Services.  
+* Use `.factory()` to create extendable Services - wrap results in Services.
+
 `base-service-factory.js`
 ```
 (function() {
