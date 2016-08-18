@@ -192,6 +192,7 @@ eg. `users-browse-controller.js`
   * 1-way binding can over-complicate simple things, and 2-way binding is rarely a problem to trace.
 * Use isolate scope except in extreme circumstances.
 * Directive names must be [camelCased](https://en.wikipedia.org/wiki/CamelCase).
+* Always use `controllerAs` syntax in directive controllers.
 * Never manipulate the DOM in Directive controllers - use the directive's `link` function instead.
 * Think reusable when creating directives.
   * If you're going to use something over and over again, make a directive out of it.
@@ -199,6 +200,7 @@ eg. `users-browse-controller.js`
   * It cleans your code up considerable and lets you focus less on the surrounding area.
 * Place most 3rd-party libraries behind a directive.
   * eg. if you have a library that creates a markdown editor, use it in a directive instead of in the code - it'll give you the flexibility to change it later.
+* Break apart lines of templates in directives by using `array.join()`
 
 ## Routing
 * Use [ui-router](https://github.com/angular-ui/ui-router).
