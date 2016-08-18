@@ -48,7 +48,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 
 ## Services
 * Use `.service()` exclusively except in extreme circumstances.
-* Use `.factory()` to create extendable services - wrap results in services.
+* Use `.factory()` to create extendable services - wrap results in services.  
 `base-service-factory.js`
 ```
 (function() {
