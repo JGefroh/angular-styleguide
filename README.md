@@ -15,9 +15,9 @@ There's a lot of styleguides out there: here's another one based off of my own d
 7. Routing
 
 ## Principles
-* Consistency
+* Consistency  
 By having consistent naming and structures, developers that in one module well can more quickly become productive in another module. It also removes much of the errors that occur when things are slightly different.
-* Black-box approach
+* Black-box approach  
 Developers shouldn't have to know about other modules outside of the one they are working on. They should be able to view the rest of the modules as a black box.
 * Don't worry about Angular 2.  
 This approach considers Angular 2 a completely different framework. Attempting to reconfigure Angular 1 code to match Angular 2 code is a waste of mental energy and time. If a rewrite is ever required, and the framework you do select is Angular 2, you're going to have to do work anyways. Chances are a better framework will come along before you do.
@@ -50,6 +50,29 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * `galleries-service.js` should define a service called `GalleryService`.
   * `thumbnail-listing.js` should define a directive called `thumbnailListing`.
     * Note that directives don't have `-directive` in their names.
+### Example folder
+```
+root/
+    app/
+        assets/
+            images/
+                default-user-picture.jpg
+            index.html <--- your main HTML page with ng-app and all that good stuff
+        modules/
+            articles/
+            users/
+            app.js <--- Your main JS into your application
+        scss/
+           _articles.scss
+           _users.scss
+           app.scss
+    bower_components/
+    node_modules/
+    .gitignore
+    bower.json
+    brunch-config.coffee
+    package.json
+```
 
 ## All
 * Wrap all files in [IIFEs](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression).
