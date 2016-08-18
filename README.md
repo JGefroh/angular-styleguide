@@ -30,6 +30,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
     * Here's a [sample brunch-config](https://gist.github.com/JGefroh/8ae026652a5aecc8c453f89b09317c5b) that matches the folder directory suggested here. 
   * Configure your build tool to:
     * Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
+      * This will make it so you don't have to keep adding `<script>`s to the `index.html`.
     * Manage templates by:
       * placing all `.html` templates into the root folder (can't have duplicate template names if you do this)
       * OR inlining templates via `template:` 
@@ -37,6 +38,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
 * Use [ui-router](https://github.com/angular-ui/ui-router) - it's far superior to the built in routing.
 * Use angular's default `$http` unless you have a compelling reason to use libraries like `restangular` or `ngResource`.
   * [My reasoning](http://jgefroh.com/blog/angularjs-use-http/) behind this decision is increased flexibility for low cost.
+* Use [bower](http://bower.io) and [npm](http://nodejs.org).
 * Think twice before using auto-annotation tools.
   * I found when people didn't have to manually manage annotations, the number of dependency-injected items went up tremendously. If your team is able to maintain discipline, go ahead and use it to save time and effort!
  
