@@ -196,6 +196,8 @@ eg. `users-browse-controller.js`
   * If you're going to use something over and over again, make a directive out of it.
 * Think self-enclosed, independent functionality when creating directives.
   * It cleans your code up considerable and lets you focus less on the surrounding area.
+* Place most 3rd-party libraries behind a directive.
+  * eg. if you have a library that creates a markdown editor, use it in a directive instead of in the code - it'll give you the flexibility to change it later.
 
 ## Routing
 * Use [ui-router](https://github.com/angular-ui/ui-router).
@@ -203,7 +205,7 @@ eg. `users-browse-controller.js`
   * You can easily change layouts.
 * Use named views - they're incredibly powerful, flexible, and cost little to set up.
 * Have a parent state for your entire application.
-  * Later on, when you need an application-wide resolve or some other thing, you can add it in one place instead of 20 different places. 
+  * Later on, when you need an application-wide resolve or some other thing (such as a pre-check to see if the person is logged in), you can add it in one place instead of 20 different places. 
 * Place route definitions in their respective `module.js` files.
 * Don't be afraid to enhance `$state` via `.run` and give it additional functionality (such as methods to set titles or slugs).
 * Use resolves to retrieve data where appropriate.
