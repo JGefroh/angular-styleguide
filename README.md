@@ -151,9 +151,9 @@ eg. `users-browse-controller.js`
 * Services should contain business logic and calls to 3rd-party systems.
 * Use `.service()` exclusively except in extreme circumstances.
 * Use `.factory()` to create extendable Services - wrap results in Services.
+* Services should be bound to `this` unless extending a parent (eg. `var service = this`).
 * Services are where the `$http` requests will take place.
 * Services may hold module-specific application state.
-
 `base-service-factory.js`
 ```js
 (function() {
