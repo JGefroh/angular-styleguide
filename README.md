@@ -15,6 +15,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 7. Directives
 8. Routing
 9. Components
+10. Performance
 
 ## Principles
 * Consistency  
@@ -219,5 +220,21 @@ eg. `users-browse-controller.js`
 ## Components
 * I see no great advantage in using them, yet.
 
+## Performance
+* Minimize the amount of watchers you have.
+* Prefer using `ngBind` over handlebars `{{ }}` - it's faster.
+* One-time bind as much as possible via `::` syntax (eg. `{{::vm.variable}}`).
+* Use `ng-if` where appropriate to remove entire DOM elements.
+  * Watch out! `ngIf` creates its own scope, which may lead to subtle bugs. 
+* Use `ngShow/nghide` if you large pieces of the DOM to toggle back and forth rapidly - it's faster than rebuilding `ngIf`, which removes the element completely.
+* Watch out for over-use of angular filters in the DOM - filters are re-evaulated every cycle, which slows down larger pages.
+  * If you need to filter extensively, create a function that'll run once and bind the `ngRepeat` to the saved results.
+* Use `track by` syntax in `ngRepeat` - it'll prevent unnecessary slow DOM manipulation.
+  * Watch out! If you `track by` $index or a property that isn't an identifier, and the size of the list changes (such as when it is filtered) you may get bugs where the DOM doesn't update properly and combines data from multiple elements.
+* Cancel `$timeout` and `$interval` when the scope is destroyed - they aren't cancelled automatically.
+* Be sure to clean up after yourself in Directive link functions - non-angular changes won't be automatically destroyed.
+* Debounce via `ngModelOptions` if you don't need changes to be detected immediately (such as when writing an autocomplete).
 
-Break the rules of this styleguide when necessary. Don't like this styleguide? I highly recommend [Todd Motto's](https://github.com/toddmotto/angular-styleguide) or [John Papa's](https://github.com/johnpapa/angular-styleguide).
+Break the rules of this styleguide when necessary.  
+
+Don't like this styleguide? I highly recommend [Todd Motto's](https://github.com/toddmotto/angular-styleguide) or [John Papa's](https://github.com/johnpapa/angular-styleguide).
