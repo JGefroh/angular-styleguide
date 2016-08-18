@@ -51,7 +51,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * You avoid a whole class of issues rising from differences in operating systems by doing this.
 * File names should match what they contain.
   * `gallery-show-controller.js` should define a controller called `GalleryShowController`.
-  * `galleries-service.js` should define a service called `GalleryService`.
+  * `galleries-service.js` should define a service called `GalleriesService`.
   * `thumbnail-listing.js` should define a directive called `thumbnailListing`.
     * Note that directives don't have `-directive` in their names.
 
@@ -82,10 +82,10 @@ project-folder/
 ## All
 * Wrap all files in [IIFEs](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression).
   * This creates a scope for your variables that is limited to that specific file.
-* Use 'use strict';
+* Use `'use strict'` at the top of every IIFE.;
 * Place the angular boilerplate up on top (eg. `angular.module...`).
   * Putting it on the bottom makes it harder to find.
-* Use named functions when passing in functions to angular.
+* Use named functions when passing functions to angular.
 * Don't assign angular to anything.
 
 ### Good! Do this:
@@ -111,7 +111,7 @@ app.controller('PunGenerationController', function() {
 ```
 
 ## Controllers
-* The names of page controllers should be PascalCased and end with "Controller", eg. `GalleryShowController`.
+* The names of page controllers should be [PascalCased](http://c2.com/cgi/wiki?PascalCase) and end with "Controller", eg. `GalleryShowController`.
 * Don't use `ngController` in the DOM except as a root-level controller on `<html>` - all other controllers should be linked with their templates in route definitions or directives.
 * Always use `bindToController` and `controllerAs` syntax.
 * Controllers should be as small as possible, and mostly serve to manage presentation logic and route requests to Services.
