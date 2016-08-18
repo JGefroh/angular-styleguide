@@ -88,7 +88,7 @@ project-folder/
 
 ### Good! Do this:
 `pun-generation-controller.js`
-```
+```js
 (function() {
   'use strict';
   angular
@@ -101,7 +101,7 @@ project-folder/
 ```  
 ### Bad! Don't do this:
 `pun-generation-controller.js`
-```
+```js
 var app = angular.module('module-name');
 app.controller('PunGenerationController', function() {
    //code here
@@ -120,7 +120,7 @@ app.controller('PunGenerationController', function() {
   * Use `var vm = this` and add template-usable functions and variables to `vm`.  
  
 eg. `users-browse-controller.js`
-```
+```js
 (function() {
   'use strict';
   angular
@@ -151,7 +151,7 @@ eg. `users-browse-controller.js`
 * Use `.factory()` to create extendable Services - wrap results in Services.
 
 `base-service-factory.js`
-```
+```js
 (function() {
   angular
     .module('module')
