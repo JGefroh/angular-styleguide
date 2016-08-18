@@ -1,8 +1,8 @@
 # angular-styleguide
 
-A WIP styleguide.
+A WIP styleguide for Angular 1.x.
 
-There's a lot of styleguides out there: here's another one based off of my own development practices.
+There's a lot of styleguides out there: here's another one based off of my own development practices. Everything in this document is based on my opinion - there are many like it but this one is mine.
 
 
 ## Contents
@@ -16,6 +16,10 @@ There's a lot of styleguides out there: here's another one based off of my own d
 ## Principles
 * Consistency
 * Black-box approach
+* Don't worry about Angular 2.  
+This approach considers Angular 2 a completely different framework. Attempting to reconfigure Angular 1 code to match Angular 2 code is a waste of mental energy and time. If a rewrite is ever required, and the framework you do select is Angular 2, you're going to have to do work anyways. Chances are a better framework will come along before you do.
+* Don't worry about ES6.  
+This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes which older browsers won't support without transpiling to ES5. The module system, while useful, is also something I find to be a maintenace burden (having to know file paths, etc.) compared to angular's module system. I'm sure most (if not all) of it can be automated away, but I haven't looked into that. Also, there's fewer developers that know ES6 - it reduces the mental burden of maintaining your programs.
 
 ## Tooling
 * Use a build tool. 
