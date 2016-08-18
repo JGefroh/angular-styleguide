@@ -14,6 +14,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 6. Services
 7. Directives
 8. Routing
+9. Components
 
 ## Principles
 * Consistency  
@@ -209,3 +210,7 @@ eg. `users-browse-controller.js`
 * Place route definitions in their respective `module.js` files.
 * Don't be afraid to enhance `$state` via `.run` and give it additional functionality (such as methods to set titles or slugs).
 * Use resolves to retrieve data where appropriate.
+
+
+## Components
+* I see no great advantage in using them, yet.
