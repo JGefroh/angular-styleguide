@@ -9,14 +9,15 @@ There's a lot of styleguides out there: here's another one based off of my own d
 1. Principles
 2. Tooling
 3. File and Directories
-4. Controllers
-5. Services
-6. Directives
-7. Routing
+4. All
+5. Controllers
+6. Services
+7. Directives
+8. Routing
 
 ## Principles
 * Consistency  
-By having consistent naming and structures, developers that in one module well can more quickly become productive in another module. It also removes much of the errors that occur when things are slightly different.
+By having consistent naming and structures, developers in one module well can more quickly become productive in another module. It also removes much of the errors that occur when things are slightly different.
 * Black-box approach  
 Developers shouldn't have to know about other modules outside of the one they are working on. They should be able to view the rest of the modules as a black box.
 * Don't worry about Angular 2.  
@@ -153,6 +154,7 @@ eg. `users-browse-controller.js`
 `base-service-factory.js`
 ```js
 (function() {
+  'use strict';
   angular
     .module('module')
     .factory('BaseServiceFactory', ['$http', Factory]);
