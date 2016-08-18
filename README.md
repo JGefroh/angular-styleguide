@@ -12,6 +12,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 4. Controllers
 5. Services
 6. Directives
+7. Routing
 
 ## Principles
 * Consistency
@@ -44,15 +45,52 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * `thumbnail-listing.js` should define a directive called `thumbnailListing`.
     * Note that directives don't have `-directive` in their names.
 
+## All
+* Wrap all files in [https://en.wikipedia.org/wiki/Immediately-invoked_function_expression](IIFEs).
+  * This creates a scope for your variables that is limited to that specific file.
+* Use 'use strict';
+* Place the angular boilerplate up on top (eg. `angular.module...`).
+  * Putting it on the bottom makes it harder to find.
+* Use named functions when passing in functions to angular.
+
+### Good! Do this:
+`pun-generator.js`
+```
+(function() {
+  'use strict';
+  angular
+    .module('module-name')
+    .controller('punGenerator', Controller);
+    function Controller() {
+     //code here
+    }
+})();
+```  
+### Bad! Don't do this:
+`pun-generator.js`
+```
+angular
+  .module('module-name')
+  .controller('punGenerator', function() {
+   //code here
+  });
+```
 
 ## Controllers
 * The names of page controllers should be PascalCased and end with "Controller", eg. `GalleryShowController`.
 * Don't use `ngController` in the DOM except as a root-level controller on `<html>` - all other controllers should be linked with their templates in route definitions or directives.
 * Always use `bindToController` and `controllerAs` syntax.
+* Controllers should be as small as possible, and mostly serve to manage presentation logic and route requests to Services.
+* Controllers should typically handle page-level logic (ie. logic for routable locations).
+* Strive for consistency in controller naming.
+  * If you have 5 pages that show different things, call all of their Controllers `<module>-show-controller.js` instead of having different names for each.
+* Don't use `$scope` unless you need it for events or digests.
+  * Use `var vm = this` and add template-usable functions and variables to `vm`.
 
 ## Services
+* Services should contain business logic and calls to 3rd-party systems.
 * Use `.service()` exclusively except in extreme circumstances.
-* Use `.factory()` to create extendable services - wrap results in services.  
+* Use `.factory()` to create extendable Services - wrap results in Services.  
 `base-service-factory.js`
 ```
 (function() {
@@ -92,3 +130,19 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * 1-way binding can over-complicate simple things, and 2-way binding is rarely a problem to trace.
 * Use isolate scope except in extreme circumstances.
 * Directive names must be [camelCased](https://en.wikipedia.org/wiki/CamelCase).
+* Never manipulate the DOM in Directive controllers - use the directive's `link` function instead.
+* Think reusable when creating directives.
+  * If you're going to use something over and over again, make a directive out of it.
+* Think self-enclosed, independent functionality when creating directives.
+  * It cleans your code up considerable and lets you focus less on the surrounding area.
+
+## Routing
+* Use [ui-router](https://github.com/angular-ui/ui-router).
+* Have a parent state for every module.
+  * You can easily change layouts.
+* Use named views - they're incredibly powerful, flexible, and cost little to set up.
+* Have a parent state for your entire application.
+  * Later on, when you need an application-wide resolve or some other thing, you can add it in one place instead of 20 different places. 
+* Place route definitions in their respective `module.js` files.
+* Don't be afraid to enhance `$state` via `.run` and give it additional functionality (such as methods to set titles or slugs).
+* Use resolves to retrieve data where appropriate.
