@@ -16,7 +16,9 @@ There's a lot of styleguides out there: here's another one based off of my own d
 
 ## Principles
 * Consistency
+By having consistent naming and structures, developers that in one module well can more quickly become productive in another module. It also removes much of the errors that occur when things are slightly different.
 * Black-box approach
+Developers shouldn't have to know about other modules outside of the one they are working on. They should be able to view the rest of the modules as a black box.
 * Don't worry about Angular 2.  
 This approach considers Angular 2 a completely different framework. Attempting to reconfigure Angular 1 code to match Angular 2 code is a waste of mental energy and time. If a rewrite is ever required, and the framework you do select is Angular 2, you're going to have to do work anyways. Chances are a better framework will come along before you do.
 * Don't worry about ES6.  
@@ -25,6 +27,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
 ## Tooling
 * Use a build tool. 
   * I recommend [brunch](http://brunch.io).
+    * Here's a [sample brunch-config](https://gist.github.com/JGefroh/8ae026652a5aecc8c453f89b09317c5b) that matches the folder directory suggested here. 
   * Configure your build tool to:
     * Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
     * Manage templates by:
