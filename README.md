@@ -214,3 +214,6 @@ eg. `users-browse-controller.js`
 
 ## Components
 * I see no great advantage in using them, yet.
+
+
+Break the rules of this styleguide when necessary.
