@@ -234,6 +234,8 @@ eg. `users-browse-controller.js`
 * Cancel `$timeout` and `$interval` when the scope is destroyed - they aren't cancelled automatically.
 * Be sure to clean up after yourself in Directive link functions - non-angular changes won't be automatically destroyed.
 * Debounce via `ngModelOptions` if you don't need changes to be detected immediately (such as when writing an autocomplete).
+* Move toggles outside of loops, including ngRepeats.
+  * eg. if you have an `ngIf` inside an `ngRepeat` that doesn't change on a per-element basis, move the `ngIf` outside of the `ngRepeat` so it doesn't create a watch per element but just once for the whole collection.
 
 Break the rules of this styleguide when necessary.  
 
