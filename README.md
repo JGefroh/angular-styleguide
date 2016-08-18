@@ -18,108 +18,37 @@ There's a lot of styleguides out there: here's another one based off of my own d
 * Black-box approach
 
 ## Tooling
-### DO use a build tool. 
-* I recommend brunch.
-
-### Configure your build tool to:
-* Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
-* Manage templates by:
-  * placing all `.html` templates into the root folder
-  * OR inlining templates via `template:` 
-  * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.  
-  
-### DO use ui-router.  
-### DO use $http.  
+* Use a build tool. 
+  * I recommend [brunch](http://brunch.io).
+  * Configure your build tool to:
+    * Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
+    * Manage templates by:
+      * placing all `.html` templates into the root folder
+      * OR inlining templates via `template:` 
+      * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.  
+* Use [ui-router](https://github.com/angular-ui/ui-router).
+* Use angular's default `$http` unless you have a compelling reason to use libraries like `restangular` or `ngResource`..
  
 ## Files and Directories
+* Organize files by modules, not by type
+  * Read [Cliff Meyers' blog post](http://cliffmeyers.com/blog/2013/4/21/code-organization-angularjs-javascript) about this.
+* File names should be lowercased and [kebab-cased](http://c2.com/cgi/wiki?KebabCase).
+  * You avoid a whole class of issues rising from differences in operating systems by doing this.
+* File names should match what they contain.
+  * `gallery-show-controller.js` should define a controller called `GalleryShowController`.
+  * `galleries-service.js` should define a service called `GalleryService`.
+  * `thumbnail-listing.js` should define a directive called `thumbnailListing`.
+    * Note that directives don't have `-directive` in their names.
 
-
-### Organize your angular-related files by modules.
-```
-root/
-__________app/
-_______________modules/
-____________________articles/
-_________________________articles-module.js
-_________________________article-preview.js
-_________________________article-preview.html
-_________________________articles-service.js
-_________________________articles-show-controller.js
-_________________________articles-show.html
-____________________components/
-_________________________loading-indicator.js
-_________________________picture-button.js
-____________________galleries/
-_________________________galleries-module.js
-_________________________gallery-thumbnail.js
-_________________________gallery-thumbnail.html
-_________________________galleries-service.js
-_________________________galleries-browse-controller.js
-_________________________galleries-browse.html
-bower-components/
-node_modules/
-bower.json
-package.json
-.gitignore
-etc.
-```
-
-DON'T:
-* Separate files by type (eg. controllers in `controllers/`, services in `services/`.
-
-### File Names
-All file names should be lowercased and kebab-cased.
-```
-loading-indicator.js
-potato.html
-```
-
-### Components / Directives shouldn't have the word `directive` at the end.
-```
-gallery-module.js
-gallery-show-controller.js
-gallery-show.html
-gallery-listing.js
-gallery-listing.html
-```
-
-### File names should match Controller / Directive names.
-eg. `gallery-show-controller.js`
-```
-(function() {
-  angular
-    .module('galleries')
-    .controller('GalleryShowController', [Controller]);
-    //...rest of code...
-```
-
-eg. `gallery-listing.js`
-```
-(function() {
-  angular
-    .module('galleries')
-    .directive('galleryListing', [Directive]);
-    //...rest of code...
-```
 
 ## Controllers
-### The names of page controllers should be PascalCased and end with "Controller".
-eg. `gallery-show-controller.js`
-```
-(function() {
-  angular
-    .module('galleries')
-    .controller('GalleryShowController', [Controller]); //Note the PascalCasedControllerName.
-    //...rest of code...
-```
-
-### Don't use `ng-controller`.
-* Controllers should always be linked with their associated template through the router.
-* Always use `bindToController` and `controllerAs: 'vm'` syntax.
+* The names of page controllers should be PascalCased and end with "Controller", eg. `GalleryShowController`.
+* Don't use `ngController` in the DOM except as a root-level controller on `<html>` - all other controllers should be linked with their templates in route definitions or directives.
+* Always use `bindToController` and `controllerAs` syntax.
 
 ## Services
-### Use `.service()` exclusively except in extreme circumstances.
-### Use `.factory()` to create extendable services - wrap results in services.
+* Use `.service()` exclusively except in extreme circumstances.
+* Use `.factory()` to create extendable services - wrap results in services.
 `base-service-factory.js`
 ```
 (function() {
@@ -155,6 +84,7 @@ eg. `gallery-show-controller.js`
 ```
 
 ## Directives
-### Use 2-way binding.
-### Use isolate scope except in extreme circumstances.
-### Directive names should be camelCased.
+* Use 2-way binding where appropriate
+  * 1-way binding can over-complicate simple things, and 2-way binding is rarely a problem to trace.
+* Use isolate scope except in extreme circumstances.
+* Directive names must be (camelCased)[https://en.wikipedia.org/wiki/CamelCase].
