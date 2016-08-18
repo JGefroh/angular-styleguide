@@ -53,7 +53,7 @@ There's a lot of styleguides out there: here's another one based off of my own d
 ```
 (function() {
   angular
-    .module('hnlio.base')
+    .module('module')
     .factory('BaseServiceFactory', ['$http', Factory]);
 
   function Factory($http) {
@@ -66,12 +66,12 @@ There's a lot of styleguides out there: here's another one based off of my own d
   }
 })();
 ```
-`gallery-service.js`
+`hello-world-service.js`
 ```
 (function() {
   angular
-    .module('hnlio.components')
-    .service('EventsService', ['BaseServiceFactory', Service]);
+    .module('module')
+    .service('HelloWorldService', ['BaseServiceFactory', Service]);
 
   function Service(BaseServiceFactory) {
     var service = BaseServiceFactory('hello', 'world');
@@ -87,4 +87,4 @@ There's a lot of styleguides out there: here's another one based off of my own d
 * Use 2-way binding where appropriate
   * 1-way binding can over-complicate simple things, and 2-way binding is rarely a problem to trace.
 * Use isolate scope except in extreme circumstances.
-* Directive names must be (camelCased)[https://en.wikipedia.org/wiki/CamelCase].
+* Directive names must be [camelCased](https://en.wikipedia.org/wiki/CamelCase).
