@@ -168,7 +168,7 @@ eg. `users-browse-controller.js`
 })();
 ```
 `hello-world-service.js`
-```
+```js
 (function() {
   angular
     .module('module')
