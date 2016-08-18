@@ -50,9 +50,10 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * `galleries-service.js` should define a service called `GalleryService`.
   * `thumbnail-listing.js` should define a directive called `thumbnailListing`.
     * Note that directives don't have `-directive` in their names.
-### Example folder
+
+### Example project directory structure
 ```
-root/
+project-folder/
     app/
         assets/
             images/
