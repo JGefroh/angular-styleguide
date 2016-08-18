@@ -28,11 +28,12 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
   * Configure your build tool to:
     * Concatenate dependencies first, followed by `*-module.js` files and all other `.js` files.
     * Manage templates by:
-      * placing all `.html` templates into the root folder
+      * placing all `.html` templates into the root folder (can't have duplicate template names if you do this)
       * OR inlining templates via `template:` 
       * OR prepending the folder prefix during build to the file name in `templateUrl: template-file.html` statements.  
-* Use [ui-router](https://github.com/angular-ui/ui-router).
-* Use angular's default `$http` unless you have a compelling reason to use libraries like `restangular` or `ngResource`..
+* Use [ui-router](https://github.com/angular-ui/ui-router) - it's far superior to the built in routing.
+* Use angular's default `$http` unless you have a compelling reason to use libraries like `restangular` or `ngResource`.
+  * [My reasoning](http://jgefroh.com/blog/angularjs-use-http/) behind this decision is increased flexibility for low cost.
 * Think twice before using auto-annotation tools.
   * I found when people didn't have to manually manage annotations, the number of dependency-injected items went up tremendously. If your team is able to maintain discipline, go ahead and use it to save time and effort!
  
