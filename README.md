@@ -49,7 +49,7 @@ This styleguide assumes ES6 doesn't exist. ES6 brings a lot of syntax changes wh
     * Note that directives don't have `-directive` in their names.
 
 ## All
-* Wrap all files in [https://en.wikipedia.org/wiki/Immediately-invoked_function_expression](IIFEs).
+* Wrap all files in [IIFEs](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression).
   * This creates a scope for your variables that is limited to that specific file.
 * Use 'use strict';
 * Place the angular boilerplate up on top (eg. `angular.module...`).
