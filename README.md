@@ -87,7 +87,33 @@ app.controller('punGenerator', function() {
 * Strive for consistency in controller naming.
   * If you have 5 pages that show different things, call all of their Controllers `<module>-show-controller.js` instead of having different names for each.
 * Don't use `$scope` unless you need it for events or digests.
-  * Use `var vm = this` and add template-usable functions and variables to `vm`.
+  * Use `var vm = this` and add template-usable functions and variables to `vm`.  
+ 
+eg. `users-browse-controller.js`
+```
+(function() {
+  'use strict';
+  angular
+    .module('myapp.users')
+    .controller('UsersBrowseController', ['UsersService', Controller]);
+    
+    function Controller(UsersService) {
+      var vm = this;
+      
+      initialize();
+      
+      function initialize() {
+        UsersService.query().then(function(users) {
+          vm.users = users;
+        };
+      }
+      
+      vm.deleteUser = function(user) {
+        UsersService.delete(user);
+      };
+    }
+})();
+```  
 
 ## Services
 * Services should contain business logic and calls to 3rd-party systems.
