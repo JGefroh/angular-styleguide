@@ -87,23 +87,23 @@ project-folder/
 * Don't assign angular to anything.
 
 ### Good! Do this:
-`pun-generator.js`
+`pun-generation-controller.js`
 ```
 (function() {
   'use strict';
   angular
     .module('module-name')
-    .controller('punGenerator', Controller);
+    .controller('PunGenerationController', Controller);
     function Controller() {
      //code here
     }
 })();
 ```  
 ### Bad! Don't do this:
-`pun-generator.js`
+`pun-generation-controller.js`
 ```
 var app = angular.module('module-name');
-app.controller('punGenerator', function() {
+app.controller('PunGenerationController', function() {
    //code here
 });
 ```
